@@ -33,3 +33,20 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+    
+    ### OVERRIDING SYLIUS DEFAULT BEHAVIOUR
+    Sylius\Bundle\CustomerBundle\SyliusCustomerBundle\Form\Type\CustomerProfileType:
+        class: App\Form\Type\Customer\CustomerProfileType
+    
+    ### New custom fields
+    newsletter_test.form.extension.type.customer_registration:
+        class: App\Form\Type\Extension\Customer\CustomerRegistrationTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\CoreBundle\Form\Type\Customer\CustomerRegistrationType }
+        arguments: [ '@security.token_storage' ]
+
+    newsletter_test.form.extension.type.customer_profile:
+        class: App\Form\Type\Extension\Customer\CustomerProfileTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\CustomerBundle\Form\Type\CustomerProfileType }
+        arguments: [ '@security.token_storage' ]    

@@ -1,0 +1,9 @@
+### Define custom entities
+sylius_resource:
+    resources:
+        app.newsletter:
+            driver: doctrine/orm
+            classes:
+                model: App\Entity\Newsletter
+#                form: App\Form\Type\Newsletter\NewsletterType
+                repository: App\Repository\NewsletterRepository

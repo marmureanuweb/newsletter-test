@@ -1,0 +1,12 @@
+####### FORM TRANSLATIONS ######
+newsletter_test:
+    ui:
+        newsletters: "Newsletters"
+        newsletter: "Newsletter"
+        subscribers: "Subscribers"
+        content: "Content"
+app:
+    ui:
+        newsletters: "Newsletter"
+        new_newsletter: "New Newsletter"
+        edit_newsletter: "Edit Newsletter"

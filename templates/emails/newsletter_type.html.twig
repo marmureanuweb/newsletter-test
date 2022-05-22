@@ -1,0 +1,12 @@
+{# Newsletter Type email #}
+{% block subject %}
+    Newsletter {{ subject }}
+{% endblock %}
+
+{% block body %}
+    Hi {{firstname}},<br/>
+    You are receiving this email because you have subscribed to {{newsletter_name}}.
+    Newslettet Test.<br/>
+    {{newsletter_content}}
+    You can unsubscribe from this newsletter by clicking <a href="{{ unsubscribe_link }}">here</a>.
+{% endblock %}

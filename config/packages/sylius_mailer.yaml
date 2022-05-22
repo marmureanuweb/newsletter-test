@@ -1,0 +1,8 @@
+sylius_mailer:
+    sender:
+        name: Newsletter Test
+        address: no-reply@syliusnewsletter.com
+    emails:
+        newsletter_type:
+            subject: 'Newsletter TYPE'
+            template: emails/newsletter_type.html.twig

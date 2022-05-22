@@ -1,2 +1,28 @@
 sylius_paypal_webhook:
     resource: "@SyliusPayPalPlugin/Resources/config/webhook_routing.yaml"
+
+### Custom routes
+app_admin_newsletter:
+    resource: |
+        alias: app.newsletter
+        section: admin
+        templates: "@SyliusAdmin\\Crud"
+        redirect: update
+        grid: app_admin_newsletter
+        vars:
+            all:
+                subheader: newsletter_test.ui.newsletter
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+    prefix: /admin
+
+### Custom Route for newsletter unsubscribe
+app_newsletter_unsubscribe:
+    path: /newsletter/unsubscribe/{customer_email}/{newsletter_id}
+    requirements:
+        newsletter_unsubscribe: .+
+    methods: [ GET ]
+    defaults:
+        _controller: App\Controller\NewsletterController::unsubscribe
+    
