@@ -6,6 +6,7 @@ namespace App\Service\Newsletter;
 
 use App\Entity\Newsletter;
 use App\Repository\NewsletterRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Psr\Log\LoggerInterface;
 
 use Sylius\Component\Core\Repository\CustomerRepositoryInterface;
@@ -20,6 +21,7 @@ class NewsletterManager
         private ?NewsletterRepository $newsletterRepository = null,
         private ?CustomerRepositoryInterface $customerRepository = null,
         private ?Router $router = null,
+        private ?EntityManagerInterface $entityManager = null,
         private ?LoggerInterface $logger = null,
     )
     {
@@ -120,6 +122,8 @@ class NewsletterManager
         $unsubscribed = false;
         try {
             $newsletter->removeSubscriber($customer);
+            $this->entityManager->persist($newsletter);
+            $this->entityManager->flush();
             $unsubscribed = true;
         } catch (\Exception $exception) {
             $this->logger->error(
