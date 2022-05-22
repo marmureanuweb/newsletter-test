@@ -43,6 +43,9 @@
     "coduo/php-to-string": {
         "version": "2.0.1"
     },
+    "composer/package-versions-deprecated": {
+        "version": "1.11.99.5"
+    },
     "dealerdirect/phpcodesniffer-composer-installer": {
         "version": "v0.7.1"
     },
@@ -282,6 +285,9 @@
             "version": "3.2",
             "ref": "5ef2976310e8f9621c1a722a73bfbe115c1559a3"
         }
+    },
+    "nikic/php-parser": {
+        "version": "v4.13.2"
     },
     "openlss/lib-array2xml": {
         "version": "0.0.10"
@@ -636,6 +642,27 @@
     },
     "symfony/intl": {
         "version": "v4.1.3"
+    },
+    "symfony/lock": {
+        "version": "6.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "5.2",
+            "ref": "a1c8800e40ae735206bb14586fdd6c4630a51b8d"
+        },
+        "files": [
+            "config/packages/lock.yaml"
+        ]
+    },
+    "symfony/maker-bundle": {
+        "version": "1.43",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
     },
     "symfony/messenger": {
         "version": "4.3",
